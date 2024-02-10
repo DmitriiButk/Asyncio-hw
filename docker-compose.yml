@@ -1,0 +1,23 @@
+version: '3.9'
+
+
+services:
+  db:
+    image: postgres:16-alpine3.17
+    ports:
+      - '5431:5432'
+    restart: unless-stopped
+    container_name: db_asyncio
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: [ 'CMD-SHELL', 'pg_isready -U postgres -d db_async_postgres' ]
+      interval: 20s
+      timeout: 25s
+      retries: 5
+
+
+volumes:
+  postgres_data:
