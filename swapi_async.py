@@ -57,7 +57,7 @@ async def main():
     for chunk in chunked(range(1, MAX_COUNT), MAX_CHUNK):
         people = [get_person(client=client, person_id=person_id) for person_id in chunk]
         result = await asyncio.gather(*people)
-        asyncio.create_task(insert_to_db(client, result))
+        asyncio.create_task(insert_to_db(client=client, list_of_jsons=result))
     tasks_set = asyncio.all_tasks() - {asyncio.current_task()}
     await asyncio.gather(*tasks_set)
     await client.close()
