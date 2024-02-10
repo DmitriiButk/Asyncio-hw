@@ -24,7 +24,7 @@ async def get_data(list_of_urls: list, value: str, client: aiohttp.ClientSession
     return ', '.join(some_list)
 
 
-async def insert_to_db(client, list_of_jsons):
+async def insert_to_db(client: aiohttp.ClientSession, list_of_jsons: list):
     async with Session() as session:
         for person in list_of_jsons:
             if person != {'detail': 'Not found'}:
