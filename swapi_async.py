@@ -65,6 +65,8 @@ async def main():
 
 
 if __name__ == '__main__':
+    print('Start of program...wait.')
     start_time = datetime.datetime.now()
     asyncio.run(main())
-    print(datetime.datetime.now() - start_time)
+    print(f'Program execution time: {datetime.datetime.now() - start_time}')
+    print('End of program.')
