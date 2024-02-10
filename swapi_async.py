@@ -17,8 +17,8 @@ async def get_person(client: aiohttp.ClientSession, person_id: int):
 
 async def get_data(list_of_urls: list, value: str, client: aiohttp.ClientSession):
     some_list = []
-    for el in list_of_urls:
-        response = await client.get(el)
+    for url in list_of_urls:
+        response = await client.get(url)
         data = await response.json()
         some_list.append(data[value])
     return ', '.join(some_list)
@@ -29,9 +29,9 @@ async def insert_to_db(client: aiohttp.ClientSession, list_of_jsons: list):
         for person in list_of_jsons:
             if person != {'detail': 'Not found'}:
                 films = await get_data(list_of_urls=person['films'], value='title', client=client)
-                species = await get_data(person['species'], 'name', client)
-                starships = await get_data(person['starships'], 'name', client)
-                vehicles = await get_data(person['vehicles'], 'name', client)
+                species = await get_data(list_of_urls=person['species'], value='name', client=client)
+                starships = await get_data(list_of_urls=person['starships'], value='name', client=client)
+                vehicles = await get_data(list_of_urls=person['vehicles'], value='name', client=client)
                 person = SwapiPeopleModel(
                     films=films,
                     species=species,
