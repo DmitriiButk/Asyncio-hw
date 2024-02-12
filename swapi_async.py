@@ -4,6 +4,7 @@ import aiohttp
 from more_itertools import chunked
 from models import init_db, SwapiPeopleModel, engine, Session
 
+
 MAX_CHUNK = 10
 MAX_COUNT = 85
 
