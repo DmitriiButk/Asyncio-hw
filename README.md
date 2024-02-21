@@ -1,4 +1,4 @@
-### Use commands in terminal:
+*Use commands in terminal:*
 
 ```shell
 cd Asyncio-hw
@@ -12,10 +12,9 @@ docker-compose up -d
 ```shell
 python swapi_async.py
 ```
-**Wait until the data is loaded into the database.**
-**Each time you start the database is deleted.**
-
-
+*Wait until the data is loaded into the database.*
+*Each time you start the database is deleted.*
+#
 # Домашнее задание к лекции «Asyncio»
 
 В этом задании мы будем выгружать из API персонажей Start Wars и загружать в базу данных.<br>
